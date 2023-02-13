@@ -1,0 +1,45 @@
+def encrypt(pt,key):
+    ct=""
+    for i in range(0,len(pt)):
+        a=pt[i]
+        if(a==" "):
+            ct+=" "
+        elif(a>='A' and a<='Z'):
+            ct+=chr((ord(a)+key-65)%26+65)
+        elif(a>='a' and a<='z'):
+            ct+=chr((ord(a)+key-97)%26+97)
+    return ct
+
+def decrypt(pt,key):
+    ct=""
+    for i in range(0,len(pt)):
+        a=pt[i]
+        if(a==" "):
+            ct+=" "
+        elif(a>='A' and a<='Z'):
+            ct+=chr((ord(a)-key-65)%26+65)
+        elif(a>='a' and a<='z'):
+            ct+=chr((ord(a)-key-97)%26+97)
+    return ct
+
+def main():
+    ch='y'
+    while(ch=='y'):
+        ct=""
+        pt=input('Enter plain text:=>')
+        key=int(input('Enter key:=>'))
+        print('1.Encryption')
+        print('2.Decryption')
+        choice=int(input('Enter ur choice'))
+        if(choice==1):
+            ct=encrypt(pt,key)
+            print('Cipher text=>',ct)
+        elif(choice==2):
+            ct=decrypt(pt,key)
+            print('Cipher text=>',ct)
+        if(choice!=1 and choice!=2):
+            print('Invalid Input')
+        ch=input('Do u want to continue(y/n)?')
+
+if __name__=="__main__":
+    main()
