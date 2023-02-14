@@ -1,0 +1,40 @@
+dronzer=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+dragoon=['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m']
+
+go='y'
+while(go=='y'):
+    print("Enter the choice:-\n1)Encryption\n2)Decryption\n")
+    choice=int(input())
+    while(choice>2 or choice<1):
+        print("Enter valid choice\n")
+        choice=int(input())
+    if(choice==1):
+        pt=input("Enter plain text")
+        pt=pt.lower()
+        ptext=list(pt.strip(" "))
+        l=len(ptext)
+        ctext=[]
+        ct=" "
+        for i in range(0,l):
+            a=ptext[i]
+            b=dronzer.index(a)
+            ctext.append(dragoon[b])
+        for j in ctext:
+            ct+=j
+        print("Cipher text:->",ct)
+    else:
+        ct=input("Enter cipher text")
+        ct=ct.lower()
+        ctext=list(pt.strip(" "))
+        l=len(ctext)
+        ptext=[]
+        pt=" "
+        for i in range(0,l):
+            a=ctext[i]
+            b=dragoon.index(a)
+            ptext.append(dronzer[b])
+        for j in ctext:
+            pt+=j
+        print("Plain text:->",pt)
+    go=input("do you want to continue(y/n)")
+        
